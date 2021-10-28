@@ -1,0 +1,37 @@
+L'UTILISATEUR JOUE
+
+R0: Faire deviner à l'utilisateur un nombre choisi par l'ordinateur
+Exemple:
+        - l'ordinateur choisit: 800
+        - l'utilisateur propose: 600
+        - Un compteur demarre à 1
+        - l'ordinateur renvoie: trop petit
+        - l'utilisateur propose: 950
+        - Le compteur s'incrémente
+        - l'ordinateur renvoie: trop grand
+        - l'utilisateur propose: 700
+        - Le compteur s'incrémente
+        - l'ordinateur renvoie: Trouvé
+        - l'ordinateur renvoie le nombre d'essai(s)
+
+
+R1: Comment "faire deviner un nombre à l'utilisateur" ?
+    . Choisir un nombre dans l'intervalle min à max: choix: out
+    . Faire deviner un nombre à l'utilisateur proposition: out
+    . Indiquer le nombre d'essai(s) à l'utilisateur nb_essai: in
+
+R2: Comment "faire deviner un nombre à l'utilisateur"?
+    . while proposition != choix:   proposition: in choix: in
+        . proposition = int(input("Votre proposition : ").strip()) proposition: out
+        . Démarrer le compteur nb_essai +=1 nb_essai: in, out
+        . Analyser les réponses de l'utilisateur
+
+
+R3 : Comment "analyser les propositions de l'utilisateur" ?
+
+. Si proposition < choix Alors: proposition: in choix: in
+    . Écrire("Trop petit")
+. Sinon Si proposition > choix Alors:  proposition: in choix: in
+    . Écrire("Trop grand")
+. Sinon proposition = choix:  proposition: in choix: in
+    . Écrire("Trouvé")

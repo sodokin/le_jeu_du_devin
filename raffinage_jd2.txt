@@ -1,0 +1,48 @@
+L'ORDINATEUR JOUE
+
+R0: Comment " faire deviner un nombre à l'ordinateur" ?
+
+Exemple:
+        - l'utilisateur choisit un nombre
+        - l'ordinateur propose: 500
+        - Un compteur demarre du nombre d'essais
+        - l'utilisateur renvoie: trop grand
+        - l'ordinateur propose: 250
+        - Le compteur s'incrémente
+        - l'utilisateur renvoie: trop petit
+        - l'utilisateur propose: 374
+        - Le compteur s'incrémente
+        - l'utilisateur renvoie: Trouvé
+        - l'utilisateur renvoie le nombre d'essai(s)
+
+
+R1: Comment " faire deviner un nombre choisi par l'utilisateur" ?
+    . Demander à l'utilisateur de choisir un nombre choix: out nb_essai: in, out
+    . Faire deviner un nombre à l'ordinateur proposition: out
+    . Analyser la proposition de l'ordinateur indice: out, in proposition: in, out MIN: out, in  MAX: in, out  nb_essai: in, out
+    . Indiquer à l'utilisateur quand il triche MIN: out, in  MAX: in, out 
+
+
+R2: Comment " analyser la proposition de l'ordinateur "?
+    . while indice!= "t": indice: in
+        . indice = input("Votre indice (t, p, g) : ") indice: out
+        . Démarrer un compteur nb_essai += 1  nb_essai: in, out
+        . Analyser les réponses de l'utilisateur indice: out, in proposition: in, out MIN: out, in  MAX: in, out  nb_essai: in, out
+
+
+R2: Comment " indiquer quand l'utilisateur triche" ?
+    . Vérifier l'intervalle restant entre MIN et MAX
+    . Ecrire ("Vous avez triché")
+
+R3: Comment "analyser la proposition de l'ordinateur "?
+    . while indice!= "t": indice: in
+        . si indice == "p": indice: in
+            . MIN = proposition + 1   proposition: in  MIN: out
+            . Proposer proposition = proposition + MAX //2  proposition: in MAX: in
+            . Incrémenter nb_essai += 1  nb_essai: in, out
+        . si indice == "g":  indice: in
+            . MAX = proposition -1 proposition: in MAX: out
+            . Proposer proposition = proposition + MIN //2   proposition: in MIN: in
+            . Incrémenter nb_essai += 1 nb_essai: in, out
+        . sinon:
+            Ecrire ("trouvé") indice: in

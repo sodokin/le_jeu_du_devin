@@ -1,0 +1,31 @@
+PROPOSER LE JEU 
+
+R0: Jouer à deviner ou à faire deviner
+Exemple:
+        - Proposer 3 options 
+        - L'utilisateur choisit "1": Il joue à deviner
+        - L'utilisateur choisit "2" : il joue à faire deviner
+        - l'utilisateur choisit "0" : il quitte le JEU
+        - l'utilisateur choisit "3" : le programme relance les propositions d'options
+
+R1: Comment " jouer à deviner ou à faire deviner " ?
+    . Choisir l'une des trois options options: out
+    . Lancer l'un des jeu options: in devin_utilisateur: in devin_ordinateur: in
+    . Quitter quitter: out
+
+R2: Comment " lancer l'un de jeu " ?
+    . while not quitter: quitter: in
+        . si option == '1': option: in
+			devin_utiliateur() devin_utiliateur: in
+		. sinon si  option== '2':
+			devin_ordinateur() devin_ordinateur: in
+		. sinon si option == '0': option: in
+			quitter = True  quitter: out
+		. sinon:
+			print("Je n'ai pas compris votre choix !")
+
+
+R2: Comment "quiter"?
+    .While not quitter: quitter: in
+        . si option == '0': option: in
+			 quitter = True  quitter: out
